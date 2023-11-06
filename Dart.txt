@@ -1,0 +1,631 @@
+1.Write a Dart program to print the user input value.
+
+import 'dart:io';
+
+void main() {
+  print("Enter a value: ");
+  String userInput = stdin.readLineSync();
+  print("You entered: $userInput");
+}
+
+============================================
+
+2.Write a Dart program to print the total sum of the user input value
+
+import 'dart:io';
+
+void main() {
+  print("Enter numbers (one per line), or enter a non-numeric value to calculate the sum:");
+  
+  double sum = 0.0;
+
+  while (true) {
+    String userInput = stdin.readLineSync();
+    try {
+      double number = double.parse(userInput);
+      sum += number;
+    } catch (e) {
+      if (userInput.toLowerCase() == "exit") {
+        break;
+      } else {
+        print("Invalid input. Please enter a numeric value or 'exit' to calculate the sum.");
+      }
+    }
+  }
+
+  print("The total sum of the numbers is: $sum");
+}
+
+==============================================================
+
+3. Take input of different data types and print the values
+
+import 'dart:io';
+
+void main() {
+  print("Enter an integer: ");
+  int intInput = int.parse(stdin.readLineSync());
+
+  print("Enter a double: ");
+  double doubleInput = double.parse(stdin.readLineSync());
+
+  print("Enter a string: ");
+  String stringInput = stdin.readLineSync();
+
+  print("You entered an integer: $intInput");
+  print("You entered a double: $doubleInput");
+  print("You entered a string: $stringInput");
+}
+
+=================================================================
+
+4. Perform different operations
+
+import 'dart:io';
+
+void main() {
+  print("Enter the first number: ");
+  double num1 = double.parse(stdin.readLineSync());
+
+  print("Enter the second number: ");
+  double num2 = double.parse(stdin.readLineSync());
+
+  print("Select an operation:");
+  print("1. Addition (+)");
+  print("2. Subtraction (-)");
+  print("3. Multiplication (*)");
+  print("4. Division (/)");
+  
+  int choice = int.parse(stdin.readLineSync());
+
+  double result;
+
+  switch (choice) {
+    case 1:
+      result = num1 + num2;
+      print("Result: $num1 + $num2 = $result");
+      break;
+    case 2:
+      result = num1 - num2;
+      print("Result: $num1 - $num2 = $result");
+      break;
+    case 3:
+      result = num1 * num2;
+      print("Result: $num1 * $num2 = $result");
+      break;
+    case 4:
+      if (num2 == 0) {
+        print("Division by zero is not allowed.");
+      } else {
+        result = num1 / num2;
+        print("Result: $num1 / $num2 = $result");
+      }
+      break;
+    default:
+      print("Invalid choice. Please select a valid operation (1-4).");
+  }
+}
+
+==================================================
+
+5. Take the name and marks(5 subjects) of students and print the total and average 
+of the marks
+
+import 'dart:io';
+
+void main() {
+  print("Enter the student's name: ");
+  String studentName = stdin.readLineSync();
+
+  List<double> subjectMarks = [];
+  
+  for (int i = 1; i <= 5; i++) {
+    print("Enter the marks for subject $i: ");
+    double marks = double.parse(stdin.readLineSync());
+    subjectMarks.add(marks);
+  }
+
+  double totalMarks = subjectMarks.reduce((a, b) => a + b);
+  double averageMarks = totalMarks / 5;
+
+  print("Student: $studentName");
+  print("Total Marks: $totalMarks");
+  print("Average Marks: $averageMarks");
+}
+
+====================================================
+
+6.Write a dart program to Print whether the user is eligible for voting or not.(take name 
+and age as input).
+import 'dart:io';
+void main() {
+print("Enter your age: ");
+var age = int.parse(stdin.readLineSync()!);
+if (age >= 18)
+{
+print("You are eligible to vote.");
+}
+else
+{
+print("You are not eligible to vote.");
+}
+}
+============================================================
+
+7.Write a dart program to Compare three user input numbers and print the greatest 
+number.
+import 'dart:io';
+void main()
+{
+print("Enter the first number: ");
+int a = int.parse(stdin.readLineSync()!);
+print("Enter the second number: ");
+int b = int.parse(stdin.readLineSync()!);
+print("Enter the third number: ");
+int c = int.parse(stdin.readLineSync()!);
+if (a > b && a > c)
+{
+print("$a is the largest");
+}
+else if (b > a && b > c)
+{
+print("$b is the largest");
+}
+else if (c > b && c > a)
+{
+print("$c is the largest");
+}
+}
+
+===============================================================
+
+8.Write a dart program to check whether a number is divisible by 5 and 11 or not.
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number: ");
+  int number = int.parse(stdin.readLineSync());
+
+  if (number % 5 == 0 && number % 11 == 0) {
+    print("$number is divisible by both 5 and 11.");
+  } else {
+    print("$number is not divisible by both 5 and 11.");
+  }
+}
+
+==================================================================
+
+9.Write a dart program to calculate the grade of the student on the basis of the student's 
+five subject marks.
+Percentage >= 90% : Grade A
+Percentage >= 80% : Grade B
+Percentage >= 70% : Grade C
+Percentage >= 60% : Grade D
+Percentage >= 40% : Grade E
+Percentage < 40% : Grade F
+import 'dart:io';
+void main()
+{
+print("Enter the Marks 1 : ");
+int m1 = int.parse(stdin.readLineSync()!);
+print("Enter the Marks 2 : ");
+int m2 = int.parse(stdin.readLineSync()!);
+print("Enter the Marks 3 : ");
+int m3 = int.parse(stdin.readLineSync()!);
+print("Enter the Marks 4 : ");
+int m4 = int.parse(stdin.readLineSync()!);
+print("Enter the Marks 5 : ");
+int m5 = int.parse(stdin.readLineSync()!);
+}
+int total = m1 + m2 + m3 + m4 + m5;
+double perc = (total/500)*100;
+if(perc >= 90)
+{
+print(“Grade A”);
+}
+else if(perc >= 80)
+{
+print(“Grade B”);
+}
+else if(perc >= 70)
+{
+print(“Grade C”);
+}
+else if(perc >= 60)
+{
+print(“Grade D”);
+}
+else if(perc >= 40)
+{
+print(“Grade E”);
+}
+else if(perc < 40)
+{
+print(“Grade F”);
+}
+}
+
+===========================================
+
+10.Write a dart program to check whether the number is even or odd.
+import 'dart:io';
+void main()
+{
+print("Enter the number: ");
+int num = int.parse(stdin.readLineSync()!);
+if(num%2 == 0)
+{
+print(“The number $num is Even”);
+}
+else
+{
+print(“The number $num is Odd”);
+}
+}
+
+=================================================
+
+11.Write a dart program to check if the number is positive, negative or zero.
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number: ");
+  double number = double.parse(stdin.readLineSync());
+
+  if (number > 0) {
+    print("$number is positive.");
+  } else if (number < 0) {
+    print("$number is negative.");
+  } else {
+    print("$number is zero.");
+  }
+}
+
+===================================================
+
+12.Write a dart program to input week number and print week day.
+import 'dart:io';
+void main() {
+print("Enter a week number (1-7): ");
+int weekNumber = int.parse(stdin.readLineSync()!);
+if(weekNumber == 1){
+print(“Monday”);
+}
+else if(weekNumber == 2){
+print(“Tuesday”);
+}
+else if(weekNumber == 3){
+print(“Wednesday”);
+}
+else if(weekNumber == 4){
+print(“Thursday”);
+}
+else if(weekNumber == 5){
+print(“Friday”);
+}
+else if(weekNumber == 6){
+print(“Saturday”);
+}
+else if(weekNumber == 7){
+print(“Sunday”);
+}
+}
+
+==================================
+
+13.Write a dart program to input month number and print number of days in that month.
+
+import 'dart:io';
+
+void main() {
+  print("Enter the month number (1-12): ");
+  int monthNumber = int.parse(stdin.readLineSync());
+
+  int daysInMonth;
+
+  switch (monthNumber) {
+    case 1: // January
+    case 3: // March
+    case 5: // May
+    case 7: // July
+    case 8: // August
+    case 10: // October
+    case 12: // December
+      daysInMonth = 31;
+      break;
+    case 4: // April
+    case 6: // June
+    case 9: // September
+    case 11: // November
+      daysInMonth = 30;
+      break;
+    case 2: // February
+      daysInMonth = 28; // Assuming it's not a leap year
+      break;
+    default:
+      print("Invalid month number. Please enter a number between 1 and 12.");
+      return;
+  }
+
+  print("Number of days in the selected month: $daysInMonth");
+}
+
+=============================================
+
+14.Write a dart program to input angles of a triangle and check whether triangle is valid or 
+not.
+
+import 'dart:io';
+
+void main() {
+  print("Enter the first angle of the triangle: ");
+  double angle1 = double.parse(stdin.readLineSync());
+
+  print("Enter the second angle of the triangle: ");
+  double angle2 = double.parse(stdin.readLineSync());
+
+  print("Enter the third angle of the triangle: ");
+  double angle3 = double.parse(stdin.readLineSync());
+
+  if (angle1 + angle2 + angle3 == 180) {
+    print("The triangle is valid.");
+  } else {
+    print("The triangle is not valid.");
+  }
+}
+
+
+============================================
+
+15.Write a dart program to input electricity unit charges and calculate total electricity 
+bill according to the given condition:
+For first 50 units Rs. 0.50/unit
+For next 100 units Rs. 0.75/unit
+For next 100 units Rs. 1.20/unit
+For unit above 250 Rs. 1.50/unit
+An additional surcharge of 20% is added to the bill
+
+import 'dart:io';
+
+void main() {
+  print("Enter the electricity unit charges: ");
+  double unitCharges = double.parse(stdin.readLineSync());
+
+  double totalBill;
+
+  if (unitCharges <= 50) {
+    totalBill = unitCharges * 0.50;
+  } else if (unitCharges <= 150) {
+    totalBill = (50 * 0.50) + ((unitCharges - 50) * 0.75);
+  } else if (unitCharges <= 250) {
+    totalBill = (50 * 0.50) + (100 * 0.75) + ((unitCharges - 150) * 1.20);
+  } else {
+    totalBill = (50 * 0.50) + (100 * 0.75) + (100 * 1.20) + ((unitCharges - 250) * 1.50);
+  }
+
+  // Add a 20% surcharge
+  totalBill += totalBill * 0.20;
+
+  print("Total electricity bill: Rs. $totalBill");
+}
+
+==============================================
+
+16.Write a dart program to print menu
+i. Area of square 
+ii. Perimeter of square 
+iii. Area of rectangle 
+iv. Perimeter of rectangle
+And perform the operation as per selected option.
+
+import 'dart:io';
+
+void main() {
+  while (true) {
+    print("Choose an option:");
+    print("1. Area of Square");
+    print("2. Perimeter of Square");
+    print("3. Area of Rectangle");
+    print("4. Perimeter of Rectangle");
+    print("5. Exit");
+    
+    int choice = int.parse(stdin.readLineSync());
+
+    switch (choice) {
+      case 1:
+        calculateAreaOfSquare();
+        break;
+      case 2:
+        calculatePerimeterOfSquare();
+        break;
+      case 3:
+        calculateAreaOfRectangle();
+        break;
+      case 4:
+        calculatePerimeterOfRectangle();
+        break;
+      case 5:
+        exit(0);
+        break;
+      default:
+        print("Invalid choice. Please select a valid option (1-5).");
+    }
+  }
+}
+
+void calculateAreaOfSquare() {
+  print("Enter the side length of the square: ");
+  double sideLength = double.parse(stdin.readLineSync());
+  double area = sideLength * sideLength;
+  print("Area of the square: $area");
+}
+
+void calculatePerimeterOfSquare() {
+  print("Enter the side length of the square: ");
+  double sideLength = double.parse(stdin.readLineSync());
+  double perimeter = 4 * sideLength;
+  print("Perimeter of the square: $perimeter");
+}
+
+void calculateAreaOfRectangle() {
+  print("Enter the length of the rectangle: ");
+  double length = double.parse(stdin.readLineSync());
+  print("Enter the width of the rectangle: ");
+  double width = double.parse(stdin.readLineSync());
+  double area = length * width;
+  print("Area of the rectangle: $area");
+}
+
+void calculatePerimeterOfRectangle() {
+  print("Enter the length of the rectangle: ");
+  double length = double.parse(stdin.readLineSync());
+  print("Enter the width of the rectangle: ");
+  double width = double.parse(stdin.readLineSync());
+  double perimeter = 2 * (length + width);
+  print("Perimeter of the rectangle: $perimeter");
+}
+
+===============================================
+
+17. Write a dart program to the Print table (1-10) of the user input number
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number: ");
+  int number = int.parse(stdin.readLineSync());
+
+  print("Multiplication Table for $number:");
+  for (int i = 1; i <= 10; i++) {
+    int result = number * i;
+    print("$number x $i = $result");
+  }
+}
+
+
+======================================================
+
+18. Write a dart program to take a number from the user and print the tables (1-10) 
+from 1 to the given number.
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number: ");
+  int maxNumber = int.parse(stdin.readLineSync());
+
+  for (int i = 1; i <= maxNumber; i++) {
+    print("Multiplication Table for $i:");
+    for (int j = 1; j <= 10; j++) {
+      int result = i * j;
+      print("$i x $j = $result");
+    }
+    print(""); // Add an empty line to separate tables
+  }
+}
+
+===================================================
+
+19. Write a dart program to print the even number sequence and odd number 
+sequence separately.
+void main() {
+  print("Even Numbers:");
+  for (int i = 2; i <= 20; i += 2) {
+    print(i);
+  }
+
+  print("\nOdd Numbers:");
+  for (int i = 1; i <= 19; i += 2) {
+    print(i);
+  }
+}
+
+================================================
+
+20. Write a dart program to print the factorial of a number given by the user.
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number to calculate its factorial: ");
+  int number = int.parse(stdin.readLineSync());
+
+  if (number < 0) {
+    print("Factorial is not defined for negative numbers.");
+  } else {
+    int factorial = calculateFactorial(number);
+    print("Factorial of $number is $factorial");
+  }
+}
+
+int calculateFactorial(int n) {
+  int result = 1;
+  for (int i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+================================================
+
+21. Write a dart program to check whether the number given by the user is 
+palindrome or not. 
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number: ");
+  int number = int.parse(stdin.readLineSync());
+
+  if (isPalindrome(number)) {
+    print("$number is a palindrome.");
+  } else {
+    print("$number is not a palindrome.");
+  }
+}
+
+bool isPalindrome(int num) {
+  int originalNumber = num;
+  int reversedNumber = 0;
+
+  while (num > 0) {
+    int digit = num % 10;
+    reversedNumber = reversedNumber * 10 + digit;
+    num ~/= 10; // Integer division to remove the last digit
+  }
+
+  return originalNumber == reversedNumber;
+}
+
+==========================================
+
+22. Write a dart program to print the sum of digits in a user input number. 
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number: ");
+  int number = int.parse(stdin.readLineSync());
+
+  int sum = calculateSumOfDigits(number);
+
+  print("Sum of digits in $number is $sum");
+}
+
+int calculateSumOfDigits(int num) {
+  int sum = 0;
+
+  while (num > 0) {
+    int digit = num % 10;
+    sum += digit;
+    num ~/= 10; // Integer division to remove the last digit
+  }
+
+  return sum;
+}
+
+==================================================
+
+
